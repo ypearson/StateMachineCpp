@@ -1,0 +1,34 @@
+#include <array>
+
+#include "build_information.hpp"
+#include "logging.h"
+
+namespace app::build_info {
+const BuildDetails build_details = {
+    "@PROJECT_NAME@",   "@BUILD_TIMESTAMP@", "@FIRMWARE_VER@",
+    "@GIT_COMMIT_SHA@", "@GIT_BRANCH_NAME@", @GIT_IS_DIRTY@,
+};
+
+const BuildDetails &get_build_information(void) { return build_details; }
+// static std::array<char,256> arr{};
+
+void print_build_info(void) {
+  LOGN("------------------------Build Info------------------------");
+  LOGN("Project Name:    %s", build_details.project_name);
+  LOGN("Firmware version %s %s", build_details.firmware_version,
+       build_details.git_is_dirty ? "*Dirty build*" : "*Clean build*");
+  LOGN("Build date/time  %s", build_details.timestamp);
+  LOGN("GIT branch       %s", build_details.git_branch);
+  LOGN("GIT SHA          %s", build_details.git_sha);
+  LOGN("------------------------Build Info------------------------");
+  // arr.fill(0);
+  // snprintf_(arr.data(), arr.size(), "{\"build_info\": {\"version\":
+  // \"%s\",\"datetime\": \"%s\",\"git_branch\": \"%s\",\"git_sha\":
+  // \"%s\",\"dirty\": %s}}", build_details.firmware_version.data(),
+  // build_details.timestamp.data(),
+  // build_details.git_branch.data(),
+  // build_details.git_sha.data(),
+  // build_details.git_is_dirty ? "true" : "false");
+  // LOG("%s",arr.data());
+}
+}  // namespace app::build_info
