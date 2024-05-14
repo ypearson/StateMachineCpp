@@ -1,0 +1,7 @@
+# Git ingore list for project
+build/
+.vscode/
+STM32CubeProgrammer/
+arm/
+Debug/
+*.bin

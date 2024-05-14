@@ -1,12 +1,13 @@
 #pragma once
+#include <string_view>
 
 namespace app::build_info {
+using std::string_view;
 struct BuildDetails {
-  const char *project_name;
-  const char *timestamp;
-  const char *firmware_version;
-  const char *git_sha;
-  const char *git_branch;
+  string_view timestamp;
+  string_view firmware_version;
+  string_view git_sha;
+  string_view git_branch;
   const bool git_is_dirty;
 };
 

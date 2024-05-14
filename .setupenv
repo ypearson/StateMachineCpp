@@ -1,0 +1,13 @@
+# source file
+# export paths and variables for build tools
+
+export TARGET_NAME='PROJECT_NAME'
+
+export TOP=$PWD
+export HOST_PATH=$PWD
+export ARM_INSTALL=firmware/arm
+export ARM_PATH=$TOP/firmware/arm/bin
+export DOCKER_HOME=/home/docker
+export DOCKER_BUILD_PATH=$DOCKER_HOME/host
+export VOL_NAME=stm32_buildtools_volume
+export GIT_BRANCH_NAME=$CI_COMMIT_BRANCH
